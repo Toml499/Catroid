@@ -62,7 +62,8 @@ import static org.catrobat.catroid.utils.Utils.SPEECH_RECOGNITION_SUPPORTED_LANG
 		"scenes",
 		"programVariableList",
 		"programListOfLists",
-		"programMultiplayerVariableList"
+		"programMultiplayerVariableList",
+		"firstTimeBackgroundCalled"
 })
 public class Project implements Serializable {
 
@@ -80,6 +81,9 @@ public class Project implements Serializable {
 	private List<UserList> userLists = new ArrayList<>();
 	@XStreamAlias("scenes")
 	private List<Scene> sceneList = new ArrayList<>();
+
+	@XStreamAlias("firstTimeBackgroundCalled")
+	private boolean firstTimeBackgroundCalled = true;
 
 	private transient File directory;
 
@@ -550,5 +554,13 @@ public class Project implements Serializable {
 				return;
 			}
 		}
+	}
+
+	public boolean getIsFirstTimeBackgroundCalled() {
+		return firstTimeBackgroundCalled;
+	}
+
+	public void setIsFirstTimeBackgroundCalled() {
+		firstTimeBackgroundCalled = false;
 	}
 }

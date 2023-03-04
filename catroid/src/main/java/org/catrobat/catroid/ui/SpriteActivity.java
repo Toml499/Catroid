@@ -190,6 +190,13 @@ public class SpriteActivity extends BaseActivity {
 		if (bundle != null) {
 			fragmentPosition = bundle.getInt(EXTRA_FRAGMENT_POSITION, FRAGMENT_SCRIPTS);
 		}
+
+		if(this.currentProject.getIsFirstTimeBackgroundCalled()) {
+			fragmentPosition = FRAGMENT_LOOKS;
+			this.currentProject.setIsFirstTimeBackgroundCalled();
+			handleAddBackgroundButton();
+		}
+
 		loadFragment(this, fragmentPosition);
 		addTabLayout(this, fragmentPosition);
 	}
