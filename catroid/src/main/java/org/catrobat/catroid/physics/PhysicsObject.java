@@ -314,7 +314,7 @@ public class PhysicsObject {
 		return body.getGravityScale();
 	}
 
-	public void setFixedRotation(boolean flag) {
+	void setFixedRotation(boolean flag) {
 		body.setFixedRotation(flag);
 	}
 
